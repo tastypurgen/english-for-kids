@@ -1,3 +1,9 @@
 .navbar {
 	padding: 0.1rem 1rem;
 }
+
+@media (min-width: 992px) {
+	.navbar-expand-lg .navbar-toggler {
+		display: block;
+	}
+}

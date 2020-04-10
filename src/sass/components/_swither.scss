@@ -17,12 +17,16 @@ $gr: #a6cd52;
 	}
 
 	.mode {
+		text-align: center;
+		width: 86px;
 		color: white;
-		margin-right: 50px;
+		margin-right: 20px;
+		font-size: 2rem;
+		line-height: 30px;
 	}
 
 	.wrap {
-		width: 275px;
+		width: 215px;
 		height: 70px;
 		position: relative;
 		box-shadow: 0 0 0 2px #eee, 0 0 40px 0px rgba(0, 0, 0, 0.15);
@@ -35,7 +39,7 @@ $gr: #a6cd52;
 			position: absolute;
 			width: 100px;
 			height: 120px;
-			left: 0px;
+			left: -2px;
 			top: -30px;
 			background: $g;
 			border-radius: 170px 170px 100px 100px / 300px 300px 200px 200px;
