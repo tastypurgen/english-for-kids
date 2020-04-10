@@ -1,9 +1,7 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+@import "bootstrap.min";
 
-body {
-	background: pink;
-}
+@import "base/base";
+
+@import "layouts/header";
+
+@import "components/swither";

@@ -39,6 +39,17 @@ module.exports = (env, options) => {
             },
           ],
         },
+        // {
+        //   // Loader for webpack to process CSS with PostCSS
+        //   loader: 'postcss-loader',
+        //   options: {
+        //     plugins: function () {
+        //       return [
+        //         require('autoprefixer')
+        //       ];
+        //     }
+        //   }
+        // },
         {
           test: /\.html$/i,
           loader: 'html-loader',
