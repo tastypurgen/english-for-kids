@@ -1,9 +1,16 @@
+.header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background: $color-primary;
+	padding: 0 40px;
+}
+
 .navbar {
 	padding: 0.1rem 1rem;
 }
 
-@media (min-width: 992px) {
-	.navbar-expand-lg .navbar-toggler {
-		display: block;
-	}
+.logo {
+	color: white;
+	cursor: default;
 }

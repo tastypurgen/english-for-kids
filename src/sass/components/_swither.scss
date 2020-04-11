@@ -3,14 +3,14 @@ $b: #222;
 $y: #ffffff;
 $gr: #a6cd52;
 
-.animal-switcher {
+.tortoro-switcher {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 165px;
 	width: 100%;
 	perspective: 600px;
-	background: #78c2ad;
+	background: $color-primary;
 	overflow: hidden;
 	* {
 		transform-style: preserve-3d;
@@ -52,7 +52,7 @@ $gr: #a6cd52;
 				height: 300vh;
 				left: -100vw;
 				top: -100vh;
-				background: #78c2ad;
+				background: $color-secondary;
 				z-index: -1;
 				transform: translateZ(-10px);
 				opacity: 0;
