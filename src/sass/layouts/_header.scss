@@ -3,7 +3,10 @@
 	justify-content: space-around;
 	align-items: center;
 	background: $color-primary;
-	padding: 0 40px;
+}
+
+nav {
+	margin-left: -33px;
 }
 
 .navbar {
@@ -11,6 +14,8 @@
 }
 
 .logo {
+	position: absolute;
+	right: 50px;
 	color: white;
 	cursor: default;
 }

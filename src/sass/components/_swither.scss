@@ -23,6 +23,8 @@ $gr: #a6cd52;
 		margin-right: 20px;
 		font-size: 2rem;
 		line-height: 30px;
+		user-select: none;
+		cursor: default;
 	}
 
 	.wrap {
@@ -258,6 +260,7 @@ $gr: #a6cd52;
 			top: 0;
 			z-index: 999;
 			opacity: 0;
+			cursor: pointer;
 			&:checked {
 				& ~ .totoro {
 					transform: translateX(180px) translateY(-5px);
