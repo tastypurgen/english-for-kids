@@ -1,6 +1,7 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 module.exports = (env, options) => {
@@ -39,28 +40,25 @@ module.exports = (env, options) => {
             },
           ],
         },
-        // {
-        //   // Loader for webpack to process CSS with PostCSS
-        //   loader: 'postcss-loader',
-        //   options: {
-        //     plugins: function () {
-        //       return [
-        //         require('autoprefixer')
-        //       ];
-        //     }
-        //   }
-        // },
         {
           test: /\.html$/i,
           loader: 'html-loader',
         },
       ],
     },
+    devServer: {
+      contentBase: './dist',
+      port: 5500,
+    },
     plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({ template: 'index.html' }),
-      new MiniCssExtractPlugin({ filename: 'style.css' }),
+      new MiniCssExtractPlugin({ filename: 'style.css' }), new CopyPlugin([
+        { from: './src/img', to: './img' },
+        // { from: 'other', to: 'public' },
+      ]),
     ],
+
   };
 
   return config;
