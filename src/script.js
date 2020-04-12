@@ -18,15 +18,23 @@ function createCategory(cat, title, img, i) {
 
 function createCard(parent, word) {
   const cardEl = document.createElement('div');
-  cardEl.classList.add('card');
   const front = document.createElement('div');
+  const back = document.createElement('div');
+  const enTitle = document.createElement('div');
+  const ruTitle = document.createElement('div');
+  cardEl.classList.add('card');
   front.classList.add('front');
-  const title = document.createElement('div');
-  title.classList.add('card-title');
-  title.textContent = word.word;
+  back.classList.add('back');
+  enTitle.classList.add('card-title');
+  enTitle.textContent = word.word;
+  ruTitle.classList.add('card-title');
+  ruTitle.textContent = word.translation;
   front.style.backgroundImage = `url(${word.image})`;
+  back.style.backgroundImage = `url(${word.image})`;
   cardEl.append(front);
-  cardEl.append(title);
+  cardEl.append(back);
+  front.append(enTitle);
+  back.append(ruTitle);
   parent.append(cardEl);
 }
 
