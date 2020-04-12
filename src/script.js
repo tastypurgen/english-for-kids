@@ -30,7 +30,7 @@ function createCard(parent, word) {
   ruTitle.classList.add('card-title');
   ruTitle.textContent = word.translation;
   front.style.backgroundImage = `url(${word.image})`;
-  back.style.backgroundImage = `url(${word.image})`;
+  back.style.cssText = `background-image: url(${word.image});`;
   cardEl.append(front);
   cardEl.append(back);
   front.append(enTitle);

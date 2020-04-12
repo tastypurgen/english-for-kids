@@ -43,6 +43,7 @@
 			transform: rotateY(180deg);
 		}
 		.back {
+			filter: saturate(0%);
 			transform: rotateY(360deg);
 		}
 	}
