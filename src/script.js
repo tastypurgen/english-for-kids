@@ -1,12 +1,10 @@
 import cards from './cards';
 
 // TODO:
-// fix burger
 // fix header (<1200px)
 
 const container = document.querySelector('.container');
-
-
+const burger = document.querySelector('#menu');
 function createCategory(cat, title, img, i) {
   const cardEl = document.createElement('div');
   cardEl.classList.add('cat-card');
@@ -32,7 +30,6 @@ function createCard(parent, word) {
   parent.append(cardEl);
 }
 
-
 function renderWordsSet(setIndex) {
   container.innerHTML = '';
   const cardItems = document.createElement('div');
@@ -44,19 +41,28 @@ function renderWordsSet(setIndex) {
 }
 
 function renderCategories() {
+  container.innerHTML = '';
   const categoriesEl = document.createElement('div');
   cards[0].forEach((card, i) => {
     createCategory(categoriesEl, cards[0][i], cards[i + 1][0].image, i);
   });
   categoriesEl.classList.add('categories');
   container.append(categoriesEl);
+
+  document.querySelector('.categories').addEventListener('click', (e) => {
+    if (e.target !== document.querySelector('.categories')) {
+      const index = e.target.getAttribute('data-index');
+      renderWordsSet(index);
+    }
+  });
 }
 
-renderCategories();
-
-document.querySelector('.categories').addEventListener('click', (e) => {
-  if (e.target !== document.querySelector('.categories')) {
-    const index = e.target.getAttribute('data-index');
-    renderWordsSet(index);
+burger.addEventListener('click', (e) => {
+  if (e.target !== burger) {
+    const index = cards[0].indexOf(e.target.textContent);
+    if (index === -1) renderCategories();
+    else renderWordsSet(index + 1);
   }
 });
+
+renderCategories();

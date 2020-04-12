@@ -18,7 +18,7 @@
 	border-radius: 8px;
 	text-align: center;
 	margin: 10px;
-	border: 2px solid white;
+	border: 5px solid $color-secondary;
 	overflow: hidden;
 
 	.front {
@@ -26,7 +26,6 @@
 		width: 300px;
 		background-size: contain;
 		background-repeat: no-repeat;
-		border-radius: 8px 8px 0 0;
 	}
 
 	.card-title {
@@ -43,7 +42,6 @@
 	border-radius: 8px;
 	text-align: center;
 	margin: 10px;
-	// border: 1px solid rgb(129, 129, 129);
 	overflow: hidden;
 	background: $color-secondary;
 
