@@ -1,22 +1,24 @@
 import cards from './cards';
 
+// TODO:
+// fix burger
+// fix header (<1200px)
+
 const cardItems = document.querySelector('.card-items');
 
 
 function createCategory(title, img, i) {
-  console.log(title, img);
   const cardEl = document.createElement('div');
   cardEl.classList.add('cat-card');
   cardEl.setAttribute('data-index', i + 1);
   cardEl.innerHTML = `
-    <img src="${img}">
-    <div class="cat-card__title">${title}</div>
+    <img src="${img}" data-index="${i + 1}">
+    <div class="cat-card__title" data-index="${i + 1}">${title}</div>
   `;
   cardItems.append(cardEl);
 }
 
 function createCard(word) {
-  console.log(word);
   const cardEl = document.createElement('div');
   cardEl.classList.add('card');
   const front = document.createElement('div');
