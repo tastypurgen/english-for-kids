@@ -4,10 +4,10 @@ import cards from './cards';
 // fix burger
 // fix header (<1200px)
 
-const cardItems = document.querySelector('.card-items');
+const container = document.querySelector('.container');
 
 
-function createCategory(title, img, i) {
+function createCategory(cat, title, img, i) {
   const cardEl = document.createElement('div');
   cardEl.classList.add('cat-card');
   cardEl.setAttribute('data-index', i + 1);
@@ -15,10 +15,10 @@ function createCategory(title, img, i) {
     <img src="${img}" data-index="${i + 1}">
     <div class="cat-card__title" data-index="${i + 1}">${title}</div>
   `;
-  cardItems.append(cardEl);
+  cat.append(cardEl);
 }
 
-function createCard(word) {
+function createCard(parent, word) {
   const cardEl = document.createElement('div');
   cardEl.classList.add('card');
   const front = document.createElement('div');
@@ -29,24 +29,33 @@ function createCard(word) {
   front.style.backgroundImage = `url(${word.image})`;
   cardEl.append(front);
   cardEl.append(title);
-  cardItems.append(cardEl);
+  parent.append(cardEl);
 }
 
 
 function renderWordsSet(setIndex) {
-  cardItems.innerHTML = '';
+  container.innerHTML = '';
+  const cardItems = document.createElement('div');
+  cardItems.classList.add('card-items');
   cards[setIndex].forEach((card, i) => {
-    createCard(cards[setIndex][i]);
+    createCard(cardItems, cards[setIndex][i]);
   });
+  container.append(cardItems);
 }
 
-cards[0].forEach((card, i) => {
-  createCategory(cards[0][i], cards[i + 1][0].image, i);
-});
+function renderCategories() {
+  const categoriesEl = document.createElement('div');
+  cards[0].forEach((card, i) => {
+    createCategory(categoriesEl, cards[0][i], cards[i + 1][0].image, i);
+  });
+  categoriesEl.classList.add('categories');
+  container.append(categoriesEl);
+}
 
+renderCategories();
 
-cardItems.addEventListener('click', (e) => {
-  if (e.target !== cardItems) {
+document.querySelector('.categories').addEventListener('click', (e) => {
+  if (e.target !== document.querySelector('.categories')) {
     const index = e.target.getAttribute('data-index');
     renderWordsSet(index);
   }
