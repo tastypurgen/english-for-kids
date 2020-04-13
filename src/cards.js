@@ -270,7 +270,7 @@ const cards = [
     },
     {
       word: 'eggs',
-      translation: 'яйцв',
+      translation: 'яйца',
       image: 'img/eggs.jpg',
     },
     {
@@ -297,42 +297,42 @@ const cards = [
   [
     {
       word: 'bed',
-      translation: 'пицца',
+      translation: 'кровать',
       image: 'img/bed.jpg',
     },
     {
       word: 'carpet',
-      translation: 'суп',
+      translation: 'ковёр',
       image: 'img/carpet.jpg',
     },
     {
       word: 'chair',
-      translation: 'масло',
+      translation: 'стул',
       image: 'img/chair.jpg',
     },
     {
       word: 'tv',
-      translation: 'яйцв',
+      translation: 'телевизор',
       image: 'img/tv.jpg',
     },
     {
       word: 'table',
-      translation: 'молоко',
+      translation: 'стол',
       image: 'img/table.jpg',
     },
     {
       word: 'plate',
-      translation: 'чай',
+      translation: 'тарелка',
       image: 'img/plate.jpg',
     },
     {
       word: 'sofa',
-      translation: 'хлеб',
+      translation: 'диван',
       image: 'img/sofa.jpg',
     },
     {
       word: 'fridge',
-      translation: 'паста',
+      translation: 'холодильник',
       image: 'img/fridge.jpg',
     },
   ],
