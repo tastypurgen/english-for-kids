@@ -10,7 +10,7 @@ $gr: #a6cd52;
 	height: 165px;
 	width: 100%;
 	perspective: 600px;
-	background: $color-primary;
+	background: $color-secondary;
 	overflow: hidden;
 	* {
 		transform-style: preserve-3d;
@@ -54,7 +54,7 @@ $gr: #a6cd52;
 				height: 300vh;
 				left: -100vw;
 				top: -100vh;
-				background: $color-secondary;
+				background: $color-primary;
 				z-index: -1;
 				transform: translateZ(-10px);
 				opacity: 0;

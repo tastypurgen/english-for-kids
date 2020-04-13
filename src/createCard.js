@@ -40,7 +40,7 @@ function createCard(parent, word) {
     if (!e.target.innerHTML) {
       e.target.offsetParent.style.cssText = `background-image: url(${word.image}); transform: rotateY(180deg)`;
       // rotate.front.audio.back
-      e.target.offsetParent.nextElementSibling.nextElementSibling.style.cssText = `background-image: url(${word.image}); transform: rotateY(360deg); filter: saturate(0%);`;
+      e.target.offsetParent.nextElementSibling.nextElementSibling.style.cssText = `background-image: url(${word.image}); transform: rotateY(360deg); filter: saturate(0%); box-shadow: 0px 0px 20px 2px rgba(191,191,191,1);`;
     } else if (e.target.innerHTML === word.word) e.target.offsetParent.nextElementSibling.play();
     else if (e.target === front) {
       e.target.nextElementSibling.play();
@@ -48,8 +48,8 @@ function createCard(parent, word) {
   });
 
   card.addEventListener('mouseleave', (e) => {
-    e.target.firstElementChild.style.cssText = `background-image: url(${word.image}); transform: rotateY(0deg)`;
-    e.target.lastElementChild.style.cssText = `background-image: url(${word.image}); transform: rotateY(180deg)`;
+    e.target.firstElementChild.style.cssText = `background-image: url(${word.image}); transform: rotateY(0deg) transform: scale(1.01);`;
+    e.target.lastElementChild.style.cssText = `background-image: url(${word.image}); transform: rotateY(180deg) transform: scale(1.01);`;
   });
 }
 
