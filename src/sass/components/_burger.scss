@@ -16,8 +16,12 @@
 	transition: color 0.2s ease;
 }
 
-#menuToggle a:hover {
-	color: $color-secondary;
+#menuToggle li {
+	transition: .2s;
+}
+
+#menuToggle li:hover {
+	transform: scale(1.2);
 }
 
 #menuToggle input {

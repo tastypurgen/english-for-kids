@@ -53,7 +53,8 @@ module.exports = (env, options) => {
     plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({ template: 'index.html' }),
-      new MiniCssExtractPlugin({ filename: 'style.css' }), new CopyPlugin([
+      new MiniCssExtractPlugin({ filename: 'style.css' }),
+      new CopyPlugin([
         { from: './src/img', to: './img' },
         // { from: 'other', to: 'public' },
       ]),
