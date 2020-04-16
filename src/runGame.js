@@ -36,6 +36,7 @@ function runGame(title) {
 
         copyTitle.innerHTML = `<img src="img/star-win.svg">${copyTitle.innerHTML}`;
         e.target.classList.add('front-off');
+        e.target.parentElement.style.pointerEvents = 'none';
         new Audio('https://english-for-kids.netlify.app/static/media/correct.8e3d6124.mp3').play();
         shuffled.shift();
       } else {
