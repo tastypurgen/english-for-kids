@@ -133,9 +133,9 @@ const cards = [
       image: 'img/bird.jpg',
     },
     {
-      word: 'fish',
-      translation: 'рыба',
-      image: 'img/fish1.jpg',
+      word: 'monkey',
+      translation: 'обезьяна',
+      image: 'img/monkey.jpg',
     },
     {
       word: 'frog',

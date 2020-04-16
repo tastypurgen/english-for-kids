@@ -46,7 +46,7 @@ function runGame(title) {
         errorsCount += 1;
       }
       // check words left
-      if (shuffled.length >= 1) {
+      if (shuffled.length > 0) {
         setTimeout(() => { shuffled[0][1].play(); }, 1000);
       } else {
         if (errorsCount < 1) {
@@ -70,6 +70,7 @@ function runGame(title) {
           </div>
           `;
         } else {
+          const message = errorsCount === 1 ? 'You made 1 mistake!' : `You made ${errorsCount} mistakes!`;
           new Audio('https://english-for-kids.netlify.app/static/media/failure.18423bbf.mp3').play();
           copyTitle.innerHTML = '';
           container.innerHTML = `
@@ -85,7 +86,7 @@ function runGame(title) {
               background: palevioletred;
               padding: 10px 20px;
               border-radius: 10px;
-            ">You made ${errorsCount} mistakes!</h2>
+            ">${message}</h2>
           </div>
           `;
           errorsCount = 0;
