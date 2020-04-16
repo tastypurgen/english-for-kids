@@ -34,14 +34,14 @@ function runGame(title) {
       if (`url("img/${shuffled[0][0]}.jpg")` === e.target.style.backgroundImage) {
         // right card
 
-        copyTitle.innerHTML += '<img src="img/star-win.svg">';
+        copyTitle.innerHTML = `<img src="img/star-win.svg">${copyTitle.innerHTML}`;
         e.target.classList.add('front-off');
         new Audio('https://english-for-kids.netlify.app/static/media/correct.8e3d6124.mp3').play();
         shuffled.shift();
       } else {
         // wrong card
 
-        copyTitle.innerHTML += '<img src="img/star.svg">';
+        copyTitle.innerHTML = `<img src="img/star.svg">${copyTitle.innerHTML}`;
         new Audio('https://english-for-kids.netlify.app/static/media/error.32fc22b2.mp3').play();
         errorsCount += 1;
       }
