@@ -18,4 +18,8 @@ nav {
 	right: 50px;
 	color: white;
 	cursor: default;
+
+	@media (max-width: 900px) {
+		display: none;
+	}
 }

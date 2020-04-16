@@ -10,8 +10,20 @@ $gr: #a6cd52;
 	height: 165px;
 	width: 100%;
 	perspective: 600px;
-	background: $color-secondary;
+	background: $color-primary;
 	overflow: hidden;
+
+	@media (max-width: 800px) {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		height: 165px;
+		width: 100%;
+		perspective: 600px;
+		background: $color-primary;
+		overflow: visible;
+		transform: scale(0.7);
+	}
 	* {
 		transform-style: preserve-3d;
 	}
@@ -20,11 +32,15 @@ $gr: #a6cd52;
 		text-align: center;
 		width: 86px;
 		color: white;
-		margin-right: 20px;
+		margin-right: 40px;
 		font-size: 2rem;
 		line-height: 30px;
 		user-select: none;
 		cursor: default;
+
+		@media (max-width: 600px) {
+			display: none;
+		}
 	}
 
 	.wrap {
@@ -41,30 +57,30 @@ $gr: #a6cd52;
 			position: absolute;
 			width: 100px;
 			height: 120px;
-			left: -2px;
+			left: -30px;
 			top: -30px;
 			background: $g;
 			border-radius: 170px 170px 100px 100px / 300px 300px 200px 200px;
 			z-index: 2;
-			&:before,
-			&:after {
-				content: "";
-				position: absolute;
-				width: 300vw;
-				height: 300vh;
-				left: -100vw;
-				top: -100vh;
-				background: $color-primary;
-				z-index: -1;
-				transform: translateZ(-10px);
-				opacity: 0;
-				transition: 0.5s ease-in-out;
-				pointer-events: none;
-			}
-			&:after {
-				z-index: 2;
-				transform: translateZ(10px);
-			}
+			// &:before,
+			// &:after {
+			// 	content: "";
+			// 	position: absolute;
+			// 	width: 300vw;
+			// 	height: 300vh;
+			// 	left: -100vw;
+			// 	top: -100vh;
+			// 	background: $color-primary;
+			// 	z-index: -1;
+			// 	transform: translateZ(-10px);
+			// 	opacity: 0;
+			// 	transition: 0.5s ease-in-out;
+			// 	pointer-events: none;
+			// }
+			// &:after {
+			// 	z-index: 2;
+			// 	transform: translateZ(10px);
+			// }
 			.ears {
 				position: absolute;
 				width: 90%;

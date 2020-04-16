@@ -9,10 +9,6 @@ function createCard(parent, word, isGameOn) {
 
     card.append(front);
     parent.append(card);
-
-    card.addEventListener('click', (e) => {
-      console.log('element clicked');
-    });
   } else {
     const card = document.createElement('div');
     card.classList.add('card');

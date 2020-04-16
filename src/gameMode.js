@@ -3,8 +3,11 @@ import renderWordsSet from './renderWordsSet';
 import renderCategories from './renderCategories';
 
 let isGameOn = false;
+const header = document.querySelector('.header');
 const menu = document.querySelector('#menu');
+const mode = document.querySelector('.mode');
 const checkbox = document.querySelector('.checkbox');
+const tortoro = document.querySelector('.tortoro-switcher');
 const title = document.querySelector('.title');
 
 function changeGameMode() {
@@ -20,6 +23,9 @@ function changeGameMode() {
       }
       title.style.color = '#78c2ad';
       menu.style.background = '#78c2ad';
+      header.style.background = '#78c2ad';
+      tortoro.style.background = '#78c2ad';
+      mode.textContent = 'Train';
       const css = '#menuToggle a:hover {color: #78c2ad;}';
       document.querySelector('#menu li').cssText = css;
     } else {
@@ -32,6 +38,9 @@ function changeGameMode() {
       }
       title.style.color = 'palevioletred';
       menu.style.background = 'palevioletred';
+      header.style.background = 'palevioletred';
+      tortoro.style.background = 'palevioletred';
+      mode.textContent = 'Play';
     }
   });
 }
