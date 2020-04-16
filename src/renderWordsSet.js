@@ -4,8 +4,14 @@ import runGame from './runGame';
 
 const container = document.querySelector('.cards-container');
 const title = document.querySelector('.title');
+const menuLinks = document.querySelectorAll('li');
 
 function renderWordsSet(setIndex, isGameOn) {
+  menuLinks.forEach((link) => {
+    link.style.textDecoration = 'none';
+  });
+  menuLinks[setIndex].style.textDecoration = 'underline';
+
   title.textContent = cards[0][setIndex - 1];
   container.innerHTML = '';
   const cardItems = document.createElement('div');

@@ -4,8 +4,13 @@ import renderWordsSet from './renderWordsSet';
 
 const container = document.querySelector('.cards-container');
 const title = document.querySelector('.title');
+const menuLinks = document.querySelectorAll('li');
 
 function renderCategories(isGameOn) {
+  menuLinks.forEach((link) => {
+    link.style.textDecoration = 'none';
+  });
+  menuLinks[0].style.textDecoration = 'underline';
   title.textContent = 'Categories';
   container.innerHTML = '';
   const categoriesEl = document.createElement('div');
