@@ -11,12 +11,8 @@ function runGame(title) {
   const soundArr = [];
   let errorsCount = 0;
 
-  const soundRight = document.createElement('audio');
-  soundRight.setAttribute('src', 'https://english-for-kids.netlify.app/static/media/correct.8e3d6124.mp3');
-  container.append(soundRight);
-  const soundWrong = document.createElement('audio');
-  soundWrong.setAttribute('src', 'https://english-for-kids.netlify.app/static/media/error.32fc22b2.mp3');
-  container.append(soundWrong);
+  const soundRight = new Audio('https://english-for-kids.netlify.app/static/media/correct.8e3d6124.mp3');
+  const soundWrong = new Audio('https://english-for-kids.netlify.app/static/media/error.32fc22b2.mp3');
 
   cards[currentSet].forEach((key) => {
     const element = [];
@@ -36,7 +32,7 @@ function runGame(title) {
 
   gameCards.addEventListener('click', (e) => {
     if (e.target !== gameCards) {
-      // check clicked card and sound
+      // check clicked card === sound
       if (`url("img/${shuffled[0][0]}.jpg")` === e.target.style.backgroundImage) {
         // right card
 
