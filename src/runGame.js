@@ -3,7 +3,6 @@ import cards from './cards';
 import shuffle from './shuffle';
 import renderCategories from './renderCategories';
 
-
 function runGame(title) {
   const container = document.querySelector('.cards-container');
   const gameCards = document.querySelector('.card-items');
@@ -11,6 +10,13 @@ function runGame(title) {
   const currentSet = cards[0].indexOf(title.textContent) + 1;
   const soundArr = [];
   let errorsCount = 0;
+
+  const soundRight = document.createElement('audio');
+  soundRight.setAttribute('src', 'https://english-for-kids.netlify.app/static/media/correct.8e3d6124.mp3');
+  container.append(soundRight);
+  const soundWrong = document.createElement('audio');
+  soundWrong.setAttribute('src', 'https://english-for-kids.netlify.app/static/media/error.32fc22b2.mp3');
+  container.append(soundWrong);
 
   cards[currentSet].forEach((key) => {
     const element = [];
@@ -37,13 +43,13 @@ function runGame(title) {
         copyTitle.innerHTML = `<img src="img/star-win.svg">${copyTitle.innerHTML}`;
         e.target.classList.add('front-off');
         e.target.parentElement.style.pointerEvents = 'none';
-        new Audio('https://english-for-kids.netlify.app/static/media/correct.8e3d6124.mp3').play();
+        soundRight.play();
         shuffled.shift();
       } else {
         // wrong card
 
         copyTitle.innerHTML = `<img src="img/star.svg">${copyTitle.innerHTML}`;
-        new Audio('https://english-for-kids.netlify.app/static/media/error.32fc22b2.mp3').play();
+        soundWrong.play();
         errorsCount += 1;
       }
       // check words left
