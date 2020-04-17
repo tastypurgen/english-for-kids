@@ -30,6 +30,9 @@ function runGame(title) {
   const copyTitle = title;
   copyTitle.innerHTML = '';
 
+
+  setTimeout(() => { shuffled[0][1].play(); }, 500);
+
   gameCards.addEventListener('click', (e) => {
     if (e.target !== gameCards) {
       // check clicked card === sound
@@ -41,6 +44,8 @@ function runGame(title) {
         e.target.parentElement.style.pointerEvents = 'none';
         soundRight.play();
         shuffled.shift();
+
+        if (shuffled.length > 0) setTimeout(() => { shuffled[0][1].play(); }, 600);
       } else {
         // wrong card
 
@@ -49,9 +54,7 @@ function runGame(title) {
         errorsCount += 1;
       }
       // check words left
-      if (shuffled.length > 0) {
-        setTimeout(() => { shuffled[0][1].play(); }, 1000);
-      } else {
+      if (shuffled.length < 1) {
         if (errorsCount < 1) {
           new Audio('https://english-for-kids.netlify.app/static/media/success.beda7e18.mp3').play();
           copyTitle.innerHTML = '';
