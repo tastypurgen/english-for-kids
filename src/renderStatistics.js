@@ -1,4 +1,5 @@
 import cards from './cards';
+import tableSort from './tableSort';
 
 const container = document.querySelector('.cards-container');
 const menuLinks = document.querySelectorAll('li');
@@ -20,19 +21,20 @@ function renderStatistics() {
   const tbody = document.createElement('tbody');
 
   thead.innerHTML = `
-    <th>Category</th>
-    <th>Word</th>
-    <th style="
-    width: 20%;">Translation</th>
-    <th>Train</th>
-    <th>Right</th>
-    <th>Wrong</th>
-    <th>Errors</th>
+    <th style="width: 15%;">Category</th>
+    <th style="width: 22%;">Word</th>
+    <th style="width: 22%;">Translation</th>
+    <th style="width: 10%;">Train</th>
+    <th style="width: 10%;">Right</th>
+    <th style="width: 10%;">Wrong</th>
+    <th style="width: 10%;">Errors</th>
   `;
 
   cards.slice(1).forEach((category, i) => {
     const cat = cards[0][i];
     category.forEach((word) => {
+      let rightCount;
+      let wrongCount;
       const tr = document.createElement('tr');
 
       const td1 = document.createElement('td');
@@ -53,17 +55,24 @@ function renderStatistics() {
       tr.append(td4);
 
       const td5 = document.createElement('td');
-      if (ls !== null && ls[word.word]) td5.textContent = ls[word.word].right;
-      else td5.textContent = 0;
+      if (ls !== null && ls[word.word]) {
+        rightCount = ls[word.word].right;
+        td5.textContent = rightCount;
+      } else td5.textContent = 0;
       tr.append(td5);
 
       const td6 = document.createElement('td');
-      if (ls !== null && ls[word.word]) td6.textContent = ls[word.word].wrong;
-      else td6.textContent = 0;
+      if (ls !== null && ls[word.word]) {
+        wrongCount = ls[word.word].wrong;
+        td6.textContent = wrongCount;
+      } else td6.textContent = 0;
       tr.append(td6);
 
       const td7 = document.createElement('td');
-      td7.textContent = '0%';
+      if (ls !== null && ls[word.word] && wrongCount !== 0) {
+        const percent = (wrongCount / (wrongCount + rightCount)) * 100;
+        td7.textContent = `${parseInt(percent, 10)}%`;
+      } else td7.textContent = '';
       tr.append(td7);
 
       tbody.append(tr);
@@ -73,6 +82,8 @@ function renderStatistics() {
   table.append(thead);
   table.append(tbody);
   container.append(table);
+
+  document.querySelectorAll('table thead').forEach((tableTH) => tableTH.addEventListener('click', (e) => tableSort(e)));
 }
 
 export default renderStatistics;
