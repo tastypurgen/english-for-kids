@@ -3,7 +3,10 @@ import cards from './cards';
 const container = document.querySelector('.cards-container');
 const menuLinks = document.querySelectorAll('li');
 
+
 function renderStatistics() {
+  const ls = JSON.parse(localStorage.getItem('stats'));
+
   menuLinks.forEach((link) => {
     link.style.textDecoration = 'none';
   });
@@ -45,15 +48,18 @@ function renderStatistics() {
       tr.append(td3);
 
       const td4 = document.createElement('td');
-      td4.textContent = 0;
+      if (ls !== null && ls[word.word]) td4.textContent = ls[word.word].train;
+      else td4.textContent = 0;
       tr.append(td4);
 
       const td5 = document.createElement('td');
-      td5.textContent = 0;
+      if (ls !== null && ls[word.word]) td5.textContent = ls[word.word].right;
+      else td5.textContent = 0;
       tr.append(td5);
 
       const td6 = document.createElement('td');
-      td6.textContent = 0;
+      if (ls !== null && ls[word.word]) td6.textContent = ls[word.word].wrong;
+      else td6.textContent = 0;
       tr.append(td6);
 
       const td7 = document.createElement('td');

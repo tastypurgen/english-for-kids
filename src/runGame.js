@@ -1,7 +1,8 @@
-
+/* eslint-disable no-undef */
 import cards from './cards';
 import shuffle from './shuffle';
 import renderCategories from './renderCategories';
+import addToStats from './addToStats';
 
 function runGame(title) {
   const container = document.querySelector('.cards-container');
@@ -38,17 +39,19 @@ function runGame(title) {
       // check clicked card === sound
       if (`url("img/${shuffled[0][0]}.jpg")` === e.target.style.backgroundImage) {
         // right card
-
+        addToStats(shuffled[0][0], 'right');
         copyTitle.innerHTML = `<img src="img/star-win.svg">${copyTitle.innerHTML}`;
         e.target.classList.add('front-off');
         e.target.parentElement.style.pointerEvents = 'none';
         soundRight.play();
         shuffled.shift();
 
-        if (shuffled.length > 0) setTimeout(() => { shuffled[0][1].play(); }, 600);
+        setTimeout(() => {
+          if (shuffled.length > 0) shuffled[0][1].play();
+        }, 600);
       } else {
         // wrong card
-
+        addToStats(shuffled[0][0], 'wrong');
         copyTitle.innerHTML = `<img src="img/star.svg">${copyTitle.innerHTML}`;
         soundWrong.play();
         errorsCount += 1;
@@ -97,7 +100,7 @@ function runGame(title) {
           `;
           errorsCount = 0;
         }
-        setTimeout(() => { renderCategories(true); }, 5000);
+        setTimeout(() => { renderCategories(true); }, 3000);
       }
     }
   });

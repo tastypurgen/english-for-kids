@@ -1,3 +1,5 @@
+import addToStats from './addToStats';
+
 function createCard(parent, word, isGameOn) {
   if (isGameOn) {
     const card = document.createElement('div');
@@ -47,6 +49,7 @@ function createCard(parent, word, isGameOn) {
     parent.append(card);
 
     card.addEventListener('click', (e) => {
+      addToStats(word.word, 'train');
       if (!e.target.innerHTML) {
         e.target.offsetParent.style.cssText = `background-image: url(${word.image}); transform: rotateY(180deg)`;
         // rotate.front.audio.back
