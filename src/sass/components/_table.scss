@@ -1,0 +1,31 @@
+table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1000px;
+	font-size: 1.3rem;
+	overflow: hidden;
+
+	@media (max-width: 650px) {
+		font-size: 1rem;
+	}
+}
+
+table tr:nth-child(even) {
+	background: #868a89;
+}
+
+th {
+	padding: 0 2px;
+	border: 1px solid white;
+	background: $color-secondary;
+	color: white;
+}
+
+td {
+	text-transform: capitalize;
+	text-align: center;
+	border: 1px solid white;
+	background: $color-primary;
+	color: white;
+}

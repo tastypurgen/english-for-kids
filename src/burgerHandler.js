@@ -1,6 +1,7 @@
 import cards from './cards';
 import renderCategories from './renderCategories';
 import renderWordsSet from './renderWordsSet';
+import renderStatistics from './renderStatistics';
 
 const toggleMenu = document.querySelector('#menu-toggle');
 const burger = document.querySelector('#menu');
@@ -12,11 +13,13 @@ function burgerHandler() {
       // if gameMode is off
       if (checkbox.checked) {
         const index = cards[0].indexOf(e.target.textContent);
-        if (index === -1) renderCategories();
+        if (e.target.textContent === 'Statistics') renderStatistics();
+        else if (index === -1) renderCategories();
         else renderWordsSet(index + 1);
       } else {
         const index = cards[0].indexOf(e.target.textContent);
-        if (index === -1) renderCategories(true);
+        if (e.target.textContent === 'Statistics') renderStatistics();
+        else if (index === -1) renderCategories(true);
         else renderWordsSet(index + 1, true);
       }
     }
