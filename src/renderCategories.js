@@ -12,6 +12,7 @@ function renderCategories(isGameOn) {
   });
   menuLinks[0].style.textDecoration = 'underline';
   title.textContent = 'Categories';
+  if (isGameOn) title.style.color = 'palevioletred';
   container.innerHTML = '';
   const categoriesEl = document.createElement('div');
   cards[0].forEach((card, i) => {

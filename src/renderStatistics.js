@@ -1,6 +1,8 @@
 import cards from './cards';
 import tableSort from './tableSort';
+// import trainDifficultWords from './trainDifficultWords';
 
+const title = document.querySelector('.title');
 const container = document.querySelector('.cards-container');
 const menuLinks = document.querySelectorAll('li');
 
@@ -13,7 +15,11 @@ function renderStatistics() {
   });
   menuLinks[9].style.textDecoration = 'underline';
 
-  document.querySelector('.title').innerHTML = 'Statistics';
+  title.style.cssText = 'padding: 4px; display: flex;justify-content: space-around;';
+  title.innerHTML = `
+    <span class="resetBtn">Reset</span>
+  `;
+  // <span class="trainBtn">Train Difficult Words</span>
 
   container.innerHTML = '';
   const table = document.createElement('table');
@@ -84,6 +90,15 @@ function renderStatistics() {
   container.append(table);
 
   document.querySelectorAll('table thead').forEach((tableTH) => tableTH.addEventListener('click', (e) => tableSort(e)));
+
+  document.querySelector('.resetBtn').addEventListener('click', () => {
+    localStorage.clear();
+    renderStatistics();
+  });
+
+  // document.querySelector('.trainBtn').addEventListener('click', () => {
+  //   trainDifficultWords();
+  // });
 }
 
 export default renderStatistics;

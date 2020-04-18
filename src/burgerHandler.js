@@ -11,17 +11,14 @@ function burgerHandler() {
   burger.addEventListener('click', (e) => {
     if (e.target !== burger) {
       // if gameMode is off
+      const index = cards[0].indexOf(e.target.textContent);
       if (checkbox.checked) {
-        const index = cards[0].indexOf(e.target.textContent);
         if (e.target.textContent === 'Statistics') renderStatistics();
         else if (index === -1) renderCategories();
         else renderWordsSet(index + 1);
-      } else {
-        const index = cards[0].indexOf(e.target.textContent);
-        if (e.target.textContent === 'Statistics') renderStatistics();
-        else if (index === -1) renderCategories(true);
-        else renderWordsSet(index + 1, true);
-      }
+      } else if (e.target.textContent === 'Statistics') renderStatistics();
+      else if (index === -1) renderCategories(true);
+      else renderWordsSet(index + 1, true);
     }
   });
 

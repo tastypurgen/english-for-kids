@@ -13,6 +13,7 @@ function renderWordsSet(setIndex, isGameOn) {
   menuLinks[setIndex].style.textDecoration = 'underline';
 
   title.textContent = cards[0][setIndex - 1];
+  if (isGameOn) title.style.color = 'palevioletred';
   container.innerHTML = '';
   const cardItems = document.createElement('div');
   cardItems.classList.add('card-items');
