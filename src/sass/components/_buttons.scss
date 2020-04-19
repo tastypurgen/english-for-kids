@@ -50,7 +50,19 @@
 	cursor: pointer;
 	transition: .2s;
 
+	@media (max-width: 400px) {
+		font-size: 1rem;
+		width: 43%;
+	}
+
 	&:hover {
 		box-shadow: 0px 0px 20px 2px rgba(219, 112, 147, 0.75);
+	}
+}
+
+.resetBtn {
+	@media (max-width: 400px) {
+		font-size: 1.4rem;
+		padding: 7px;
 	}
 }
