@@ -1,0 +1,25 @@
+.header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background: $color-primary;
+}
+
+nav {
+	margin-left: -33px;
+}
+
+.navbar {
+	padding: 0.1rem 1rem;
+}
+
+.logo {
+	position: absolute;
+	right: 50px;
+	color: white;
+	cursor: default;
+
+	@media (max-width: 900px) {
+		display: none;
+	}
+}
