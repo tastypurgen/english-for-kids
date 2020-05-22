@@ -1,6 +1,5 @@
 import cards from './cards';
 import tableSort from './tableSort';
-import trainDifficultWords from './trainDifficultWords';
 
 const title = document.querySelector('.title');
 const container = document.querySelector('.cards-container');
@@ -18,7 +17,6 @@ function renderStatistics() {
   title.style.cssText = 'padding: 4px; display: flex;justify-content: space-around;';
   title.innerHTML = `
     <span class="resetBtn">Reset</span>
-    <span class="trainBtn">Train Difficult Words</span>
   `;
 
   container.innerHTML = '';
@@ -94,10 +92,6 @@ function renderStatistics() {
   document.querySelector('.resetBtn').addEventListener('click', () => {
     localStorage.clear();
     renderStatistics();
-  });
-
-  document.querySelector('.trainBtn').addEventListener('click', () => {
-    trainDifficultWords();
   });
 }
 

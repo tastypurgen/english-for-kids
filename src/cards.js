@@ -139,7 +139,7 @@ const cards = [
     },
     {
       word: 'frog',
-      translation: 'жаба',
+      translation: 'лягушка',
       image: 'img/frog.jpg',
     },
     {
