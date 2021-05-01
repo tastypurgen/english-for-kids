@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import cards from './cards';
 import shuffle from './shuffle';
 import renderCategories from './renderCategories';
@@ -18,7 +17,8 @@ function runGame(title) {
   cards[currentSet].forEach((key) => {
     const element = [];
     element.push(key.word);
-    element.push(new Audio(`https://wooordhunt.ru/data/sound/word/us/mp3/${key.word}.mp3`));
+    element.push(new Audio(`https://wooordhunt.ru/data/sound/sow/uk/${key.word}.mp3`));
+
     soundArr.push(element);
   });
 
@@ -30,7 +30,6 @@ function runGame(title) {
   });
   const copyTitle = title;
   copyTitle.innerHTML = '';
-
 
   setTimeout(() => { shuffled[0][1].play(); }, 500);
 
