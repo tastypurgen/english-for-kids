@@ -38,7 +38,7 @@ function createCard(parent, word, isGameOn) {
 
     const audio = document.createElement('audio');
     audio.setAttribute('preload', 'auto');
-    audio.setAttribute('src', `https://wooordhunt.ru/data/sound/word/us/mp3/${word.word}.mp3`);
+    audio.setAttribute('src', `https://wooordhunt.ru/data/sound/sow/uk/${word.word}.mp3`);
 
     card.append(front);
     card.append(audio);

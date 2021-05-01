@@ -45,5 +45,4 @@ function changeGameMode() {
   });
 }
 
-
 export default changeGameMode;

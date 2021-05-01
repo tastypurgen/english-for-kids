@@ -15,7 +15,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    "import/no-cycle": 0,
-    "no-param-reassign": 0
+    'import/no-cycle': 0,
+    'no-param-reassign': 0,
   },
 };

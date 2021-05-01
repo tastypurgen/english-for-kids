@@ -5,7 +5,6 @@ const title = document.querySelector('.title');
 const container = document.querySelector('.cards-container');
 const menuLinks = document.querySelectorAll('li');
 
-
 function renderStatistics() {
   const ls = JSON.parse(localStorage.getItem('stats'));
 
