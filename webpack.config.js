@@ -7,7 +7,7 @@ const path = require('path');
 module.exports = (env, options) => {
   const isProd = options.mode === 'production';
 
-  const config = {
+  return {
     mode: isProd ? 'production' : 'development',
     devtool: isProd ? 'none' : 'source-map',
     watch: !isProd,
@@ -46,21 +46,28 @@ module.exports = (env, options) => {
         },
       ],
     },
+
     devServer: {
-      contentBase: './dist',
-      port: 5500,
+      static: {
+        directory: path.join(__dirname, './dist'),
+      },
+      compress: true,
+      historyApiFallback: true,
+      https: false,
+      open: true,
+      hot: true,
+      port: 3000,
     },
     plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({ template: 'index.html' }),
       new MiniCssExtractPlugin({ filename: 'style.css' }),
-      new CopyPlugin([
-        { from: './src/img', to: './img' },
-        // { from: 'other', to: 'public' },
-      ]),
+      new CopyPlugin({
+        patterns: [
+          { from: './src/img', to: './img' },
+        ],
+      }),
     ],
 
   };
-
-  return config;
 };
