@@ -9,24 +9,18 @@ module.exports = (env, options) => {
 
   return {
     mode: isProd ? 'production' : 'development',
-    devtool: isProd ? 'none' : 'source-map',
+    devtool: isProd ? false : 'source-map',
     watch: !isProd,
     entry: ['./src/script.js', './src/sass/style.scss'],
     output: {
-      filename: 'script.js',
       path: path.join(__dirname, 'dist'),
+      filename: 'script.js',
     },
     module: {
       rules: [
         {
           test: /\.m?js$/,
           exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env'],
-            },
-          },
         },
         {
           test: /\.scss$/,
